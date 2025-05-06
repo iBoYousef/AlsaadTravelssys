@@ -1,0 +1,74 @@
+rules_version = '2';
+ 
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // وظيفة للتحقق من المصادقة
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+ 
+    // وظيفة للتحقق من أن المستخدم هو مسؤول
+    function isAdmin() {
+      return isAuthenticated() && 
+        exists(/databases/$(database)/documents/employees/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/employees/$(request.auth.uid)).data.role == 'admin';
+    }
+ 
+    // وظيفة للتحقق من الصلاحيات
+    function hasPermission(permission) {
+      return isAuthenticated() && 
+        exists(/databases/$(database)/documents/employees/$(request.auth.uid)) &&
+        permission in get(/databases/$(database)/documents/employees/$(request.auth.uid)).data.permissions;
+    }
+ 
+    // قواعد مجموعة الموظفين
+    match /employees/{employeeId} {
+      // القراءة: يجب أن يكون المستخدم مصادق عليه ولديه صلاحية عرض الموظفين
+      allow read: if isAuthenticated() && (hasPermission('view_employees') || request.auth.uid == employeeId);
+      
+      // الإنشاء: فقط للمسؤولين
+      allow create: if isAdmin();
+      
+      // التحديث: للمسؤولين أو المستخدم نفسه (فقط لبعض الحقول)
+      allow update: if isAdmin() || 
+        (request.auth.uid == employeeId && 
+          request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['password', 'phoneNumber', 'email']));
+      
+      // الحذف: فقط للمسؤولين
+      allow delete: if isAdmin();
+    }
+ 
+    // قواعد مجموعة العملاء
+    match /customers/{customerId} {
+      allow read: if isAuthenticated() && hasPermission('view_customers');
+      allow write: if isAuthenticated() && hasPermission('manage_customers');
+    }
+ 
+    // قواعد مجموعة الحجوزات
+    match /bookings/{bookingId} {
+      allow read: if isAuthenticated() && (
+        hasPermission('view_hotel_bookings') ||
+        hasPermission('view_flight_bookings') ||
+        hasPermission('view_event_bookings')
+      );
+      allow write: if isAuthenticated() && (
+        hasPermission('manage_hotel_bookings') ||
+        hasPermission('manage_flight_bookings') ||
+        hasPermission('manage_event_bookings')
+      );
+    }
+ 
+    // قواعد مجموعة التقارير
+    match /reports/{reportId} {
+      allow read: if isAuthenticated() && hasPermission('view_reports');
+      allow write: if isAdmin();
+    }
+ 
+    // قواعد مجموعة الإعدادات
+    match /settings/{settingId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && hasPermission('manage_settings');
+    }
+  }
+}

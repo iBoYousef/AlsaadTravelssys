@@ -1,0 +1,14 @@
+<!-- الشعار الإنجليزي للسعد للسياحة والسفر -->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <g>
+    <!-- طائرة -->
+    <path d="M570 100 Q580 90 600 95 L620 100 Q630 105 640 110 L570 100Z" fill="#0099e5"/>
+    <!-- مسارات الطيران -->
+    <path d="M170 180 Q270 220 370 240" stroke="#0099e5" stroke-width="15" fill="none"/>
+    <path d="M170 200 Q270 240 370 260" stroke="#0099e5" stroke-width="15" fill="none"/>
+    <!-- اسم ALSAAD -->
+    <text x="170" y="350" font-family="Arial" font-weight="bold" font-size="100" fill="#333">ALSAAD</text>
+    <!-- TRAVEL & TOURISM -->
+    <text x="170" y="400" font-family="Arial" font-size="40" fill="#0099e5">TRAVEL & TOURISM</text>
+  </g>
+</svg>

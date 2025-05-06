@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g>
+    <!-- خلفية دائرية -->
+    <circle cx="32" cy="32" r="30" fill="white"/>
+    <!-- طائرة -->
+    <path d="M32 15 Q35 12 40 14 L45 16 Q47 17 50 18 L32 15Z" fill="#0099e5"/>
+    <!-- مسارات الطيران -->
+    <path d="M25 25 Q35 30 45 32" stroke="#0099e5" stroke-width="3" fill="none"/>
+    <path d="M25 30 Q35 35 45 37" stroke="#0099e5" stroke-width="3" fill="none"/>
+    <!-- حرف S للسعد -->
+    <path d="M28 40 Q32 38 36 40 Q40 42 40 46 Q40 50 36 52 L32 52 Q28 52 26 50 L28 40Z" fill="#333"/>
+  </g>
+</svg>

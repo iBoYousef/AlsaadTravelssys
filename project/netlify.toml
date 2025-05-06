@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[dev]
+  command = "npm start"
+  port = 3000
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production]
+  # Custom domain for production
+  # Set this domain in Netlify dashboard as well
+  url = "https://alsaadtravelssys.com"
+
+[context.production.environment]
+  # يمكنك إضافة متغيرات بيئة خاصة بالإنتاج هنا إذا لزم الأمر
+  # مثال:
+  # VITE_API_BASE_URL = "https://alsaadtravelssys.com/api"

@@ -1,0 +1,21 @@
+<!-- الشعار العربي للسعد للسياحة والسفر -->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <g>
+    <!-- طائرة -->
+    <path d="M420 150 Q430 140 450 145 L470 150 Q480 155 490 160 L420 150Z" fill="#0099e5"/>
+    <!-- مسارات الطيران -->
+    <path d="M500 180 Q600 220 700 240" stroke="#0099e5" stroke-width="15" fill="none"/>
+    <path d="M500 200 Q600 240 700 260" stroke="#0099e5" stroke-width="15" fill="none"/>
+    <!-- المباني -->
+    <rect x="690" y="150" width="20" height="100" fill="#333"/>
+    <rect x="720" y="150" width="20" height="100" fill="#333"/>
+    <!-- اسم السعد بالعربي -->
+    <path d="M300 270 Q350 270 380 300 Q400 320 400 350 Q400 380 380 400 L350 400 Q320 400 300 380 L300 270Z" fill="#333"/>
+    <path d="M400 270 Q450 270 480 300 Q500 320 500 350 Q500 380 480 400 L450 400 Q420 400 400 380 L400 270Z" fill="#333"/>
+    <path d="M500 270 Q550 270 580 300 Q600 320 600 350 Q600 380 580 400 L550 400 Q520 400 500 380 L500 270Z" fill="#333"/>
+    <!-- للسياحة والسفر -->
+    <text x="300" y="430" font-family="Arial" font-size="40" fill="#0099e5">للسياحة والسفر</text>
+    <!-- ALSAAD TRAVEL & TOURISM -->
+    <text x="240" y="470" font-family="Arial" font-size="24" fill="#333">ALSAAD TRAVEL & TOURISM</text>
+  </g>
+</svg>

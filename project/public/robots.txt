@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow admin sections
+Disallow: /admin/
+Disallow: /settings/
+Disallow: /users/
+Disallow: /system/
+
+# Sitemap
+Sitemap: https://alsaadtravels.com/sitemap.xml
